@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 void main(){
-    printf("개빡쳐");
+    printf("룰루");
 }
