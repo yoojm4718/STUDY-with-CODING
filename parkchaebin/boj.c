@@ -1,13 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
 
 int main(void)
 {
-    printf("hello\n");
     int num[26] = { 0 }, max = 0, a = 0;
-    char san[1000];
+    char san[1000000];
     scanf("%s", san);
     for (int i = 0;san[i];i++)
     {
@@ -16,18 +14,22 @@ int main(void)
     }
     for (int k = 0; k < 26; k++)
     {
-        if (max < num[k])max = num[k];
+        if (max < num[k])
+            max = num[k];
     }
     for (int k = 0; k < 26; k++)
     {
-        if (max == num[k])a++;
+        if (max == num[k])
+            a++;
     }
     if (a == 1)
+    {
         for (int k = 0; k < 26; k++)
         {
             if (max == num[k])
                 printf("%c", k + 65);
         }
+    }
     else printf("?");
 
     return 0;
