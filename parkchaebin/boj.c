@@ -1,19 +1,23 @@
-//1712
+//2292
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-long long BEP(long long A, long long B, long long C);
+int hy(int N, int num);
 
 int main(void)
 {
-	long long A, B, C;
-	scanf("%llu %llu %llu", &A, &B, &C);
-	if (BEP(A, B, C) >= 0)
-		printf("%llu", BEP(A, B, C));
-	else printf("-1");
+	int num = 0;
+	long long N;
+	scanf("%llu", &N);
+	if (N == 1)printf("1");
+	else printf("%d", hy(N, num));
 	return 0;
 }
-long long BEP(long long A, long long B, long long C) {
-	if (C <= B)return -1;
-	else return A / (C - B) + 1;
+int hy(int N, int num) {
+	for (int i = 0;;i++)
+	{
+		num += 6 * i;
+		if (N <= 1 + num)return i + 1;
+	}
+
 }
