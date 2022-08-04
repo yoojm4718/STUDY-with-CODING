@@ -1,35 +1,89 @@
-//1316
+//1193
+
 #define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
-#include <string.h>
+
+
 
 int main(void)
+
 {
-	int num, count = 0, n, re = 0;
-	char san[100];
-	scanf("%d", &num);
-	for (int i = 0;i < num;i++) {
-		n = 0;
-		scanf("%s", san);
-		for (int p = 0;san[p];p++)
-			if (san[p + 1] == 0) re = p + 1;
-		if (re > 2) {
-			for (int j = 2;j < re;j++)
-			{
-				for (int k = 0;k < j;k++)
-				{
-					if (san[j] == san[k] && san[j - 1] != san[j]) {
-						n--;
-						break;
-					}
-					if (k == j - 1)n++;
+
+	long long n, i, j = 1;
+
+	int n1 = 1, n2 = 1;
+
+	scanf("%llu", &n);
+
+	if (n == 1)printf("1/1");
+
+	else
+
+	{
+
+		while (1)
+
+		{
+
+			if (n1 == 1) {
+
+				n2++;
+
+				j++;
+
+				if (j >= n)break;
+
+				while (n2 != 1) {
+
+					n1++;
+
+					n2--;
+
+					j++;
+
+					if (j >= n)break;
+
 				}
+
+				if (j >= n)break;
+
 			}
-			if (n == re - 2)count++;
+
+			else if (n2 == 1) {
+
+				n1++;
+
+				j++;
+
+				if (j >= n)break;
+
+				while (n1 != 1) {
+
+					n2++;
+
+					n1--;
+
+					j++;
+
+					if (j >= n)break;
+
+				}
+
+				if (j >= n)break;
+
+			}
+
 		}
-		else count++;
+
+		printf("%d/%d", n1, n2);
+
 	}
-	printf("%d", count);
+
+
+
+
 
 	return 0;
+
 }
