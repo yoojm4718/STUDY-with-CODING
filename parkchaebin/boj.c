@@ -1,32 +1,30 @@
-//9020
+//2920
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-	int T, num, n, p[10001] = { 0 }, a, b;
-	scanf("%d", &T);
-	p[2] = 1;
-	for (int i = 3;i < 10001;i += 2)
-		p[i] = 1;
-	for (int i = 3;i < 10001;i += 2)
+	int num[8], count = 0, sum = 0, se = 0;
+	for (int i = 0;i < 8;i++)
 	{
-		for (int j = 3;j <= i;j += 2)
-			if (i * j <= 10000)
-				p[i * j] = 0;
+		scanf("%d", &num[i]);
 	}
-	for (int i = 0;i < T;i++)
-	{
-		num = 2;
-		scanf("%d", &n);
-		while (n >= 2 * num)
-		{
-			if (p[num] == 1 && p[n - num] == 1)
-				a = num, b = n - num;
-			num++;
+	for (int i = 0;i < 8;i++) {
+		se++;
+		if (num[i] == i + 1) {
+			count++;
+			if (count == 7)printf("ascending");
+			else if (se == 7)printf("mixed");
 		}
-		printf("%d %d\n", a, b);
+		else if (num[i] == (8 - i)) {
+			sum++;
+			if (sum == 7)printf("descending");
+			else if (se == 7)printf("mixed");
+		}
+		else if (se == 7)printf("mixed");
 	}
 
 	return 0;
+
 }
