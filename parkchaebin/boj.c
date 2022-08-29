@@ -1,24 +1,13 @@
-//10807
+//11382
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
 
 int main(void)
 {
-	unsigned int N;
-	int num[100], v, count = 0, len = 0;
-	scanf("%d", &N);
-	for (int i = 0; i < N; i++)
-	{
-		scanf("%d", &num[i]);
-	}
-	scanf("%d", &v);
-	for (int i = 0; i < N; i++)
-	{
-		if (num[i] == v)count++;
-	}
-	printf("%d", count);
-
+	unsigned long long A[1], B[1], C[1], sum[1];
+	scanf("%llu %llu %llu", &A[0], &B[0], &C[0]);
+	sum[0] = A[0] + B[0] + C[0];
+	printf("%llu", sum[0]);
 
 	return 0;
 
