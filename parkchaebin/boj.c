@@ -1,33 +1,18 @@
-//2738
+//2744
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <ctype.h>
 
 int main(void)
 {
-	unsigned int N, M;
-	int A[100][100], B[100][100];
-	scanf("%u %u", &N, &M);
-	for (int i = 0;i < N;i++)
+	char san[100];
+	scanf("%s", san);
+	for (int i = 0;san[i];i++)
 	{
-		for (int j = 0;j < M;j++)
-		{
-			scanf("%d", &A[i][j]);
-		}
+		if (isupper(san[i]) != 0) san[i] = tolower(san[i]);
+		else if (islower(san[i]) != 0) san[i] = toupper(san[i]);
 	}
-	for (int i = 0;i < N;i++)
-	{
-		for (int j = 0;j < M;j++)
-		{
-			scanf("%d", &B[i][j]);
-		}
-	}
-	for (int i = 0;i < N;i++)
-	{
-		for (int j = 0;j < M;j++)
-		{
-			printf("%d ", A[i][j] + B[i][j]);
-		}
-		puts("");
-	}
+	printf("%s", san);
+
 	return 0;
 }
