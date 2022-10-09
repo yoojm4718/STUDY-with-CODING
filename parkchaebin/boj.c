@@ -1,30 +1,35 @@
-//25305
+//25501
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+
+int c1 = 0, c2 = 0;
+int recursion(const char* s, int l, int r) {
+	c1++;
+	if (l >= r) return 1;
+	else if (s[l] != s[r]) return 0;
+	else return recursion(s, l + 1, r - 1);
+}
+
+int isPalindrome(const char* s) {
+	c2 = recursion(s, 0, strlen(s) - 1);
+	return recursion(s, 0, strlen(s) - 1);
+}
 
 int main(void)
 {
-	int N1, N2, i, j, sep[1000], tmp;
-	scanf("%d %d", &N1, &N2);
-	for (i = 0;i < N1;i++)
-	{
-		scanf("%d", &sep[i]);
-	}
+	int N, i;
+	char sep[1000];
 
-	for (i = 0;i < N1;i++)
-	{
-		for (j = i;j < N1;j++)
-		{
-			if (sep[i] < sep[j]) {
-				tmp = sep[i];
-				sep[i] = sep[j];
-				sep[j] = tmp;
-			}
-		}
-	}
+	scanf("%d", &N);
 
-	printf("%d", sep[--N2]);
+	for (i = 0;i < N;i++)
+	{
+		scanf("%s", sep);
+		isPalindrome(sep);
+		printf("%d %d\n", c2, c1 / 2);
+		c1 = 0, c2 = 0;
+	}
 
 	return 0;
 }
