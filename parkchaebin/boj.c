@@ -1,32 +1,30 @@
-//2750
+//25305
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void)
 {
-	int N, i, j, A[1000], tmp;
-
-	scanf("%d", &N);
-
-	for (i = 0;i < N;i++)
+	int N1, N2, i, j, sep[1000], tmp;
+	scanf("%d %d", &N1, &N2);
+	for (i = 0;i < N1;i++)
 	{
-		scanf("%d", &A[i]);
+		scanf("%d", &sep[i]);
 	}
 
-	for (i = 0;i < N;i++)
+	for (i = 0;i < N1;i++)
 	{
-		for (j = i;j < N;j++)
+		for (j = i;j < N1;j++)
 		{
-			if (A[i] > A[j]) {
-				tmp = A[i];
-				A[i] = A[j];
-				A[j] = tmp;
+			if (sep[i] < sep[j]) {
+				tmp = sep[i];
+				sep[i] = sep[j];
+				sep[j] = tmp;
 			}
 		}
 	}
 
-	for (i = 0;i < N;i++)
-		printf("%d\n", A[i]);
+	printf("%d", sep[--N2]);
+
 	return 0;
 }
