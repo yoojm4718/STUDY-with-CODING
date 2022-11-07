@@ -1,31 +1,32 @@
-//1259
+//2566
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
-#include <string.h>
 
 int main(void) {
 
-    int lon, lo;
-    char parlin[99999];
+    int i = 0, j, max = -1, a = 0, b = 0;
+    char san[10][10];
 
-    while (1) {
-        scanf("%s", parlin);
-        if (parlin[0] == '0')break;
-        lon = strlen(parlin);
-        if (lon % 2 == 0)lo = lon / 2;
-        else lo = lon / 2 + 1;
-        for (int i = 0;i <= lo;i++)
+    while (i < 9)
+    {
+        for (j = 0;j < 9;j++)
         {
-            if (parlin[i] == parlin[lon - i - 1])continue;
-            else {
-                printf("no\n");
-                lon = 0;
-                break;
+            scanf("%d", &san[i][j]);
+            getchar();
+            if (max < (int)san[i][j]) {
+                max = (int)san[i][j];
+                a = i + 1, b = j + 1;
             }
+
         }
-        if (lon == 0)continue;
-        else printf("yes\n");
+
+        i++;
     }
+
+    printf("%d", max);
+    puts("");
+    printf("%d %d", a, b);
+
     return 0;
 }
