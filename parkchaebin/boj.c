@@ -1,32 +1,32 @@
-//2566
+//1094
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
-int main(void) {
+int stick(int n, int k, int sum)
+{
+	if (n - k > 0) {
+		sum++;
+		n = n - k;
+		k = k / 2;
+		return stick(n, k, sum);
+	}
+	else if (n == k) {
+		sum++;
+		return sum;
+	}
+	else {
+		k = k / 2;
+		return stick(n, k, sum);
+	}
+}
 
-    int i = 0, j, max = -1, a = 0, b = 0;
-    char san[10][10];
+int main(void)
+{
+	int n, sum = 0, k = 64;
 
-    while (i < 9)
-    {
-        for (j = 0;j < 9;j++)
-        {
-            scanf("%d", &san[i][j]);
-            getchar();
-            if (max < (int)san[i][j]) {
-                max = (int)san[i][j];
-                a = i + 1, b = j + 1;
-            }
+	scanf("%d", &n);
+	printf("%d", stick(n, k, sum));
 
-        }
-
-        i++;
-    }
-
-    printf("%d", max);
-    puts("");
-    printf("%d %d", a, b);
-
-    return 0;
+	return 0;
 }
