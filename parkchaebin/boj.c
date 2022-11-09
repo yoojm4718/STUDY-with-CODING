@@ -1,32 +1,18 @@
-//1094
+//10797
 #define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 
-int stick(int n, int k, int sum)
-{
-	if (n - k > 0) {
-		sum++;
-		n = n - k;
-		k = k / 2;
-		return stick(n, k, sum);
-	}
-	else if (n == k) {
-		sum++;
-		return sum;
-	}
-	else {
-		k = k / 2;
-		return stick(n, k, sum);
-	}
-}
-
-int main(void)
-{
-	int n, sum = 0, k = 64;
+int main(void) {
+	int n, sum = 0;
+	int a[5];
 
 	scanf("%d", &n);
-	printf("%d", stick(n, k, sum));
+	scanf("%d %d %d %d %d", &a[0], &a[1], &a[2], &a[3], &a[4]);
+
+	for (int i = 0;i < 5;i++)
+		if (n == a[i])sum++;
+	printf("%d", sum);
+
 
 	return 0;
 }
