@@ -1,14 +1,17 @@
-//15727
+//4101
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main(void) {
+	int a, b;
 
-	int L;
-	scanf("%d", &L);
-	if (L % 5 == 0)printf("%d", L / 5);
-	else printf("%d", L / 5 + 1);
-
+	while (1)
+	{
+		scanf("%d %d", &a, &b);
+		if (a == 0 && b == 0)break;
+		else if (a <= b)printf("No\n");
+		else printf("Yes\n");
+	}
 
 	return 0;
 }
