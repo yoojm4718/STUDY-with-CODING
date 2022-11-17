@@ -1,26 +1,21 @@
-//1037
+//25372
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <string.h>
 
 int main(void) {
-	int min = 1000000, max = 1, N;
-	long long sum;
-	int arr[50];
+
+	int N;
+	char san[20];
 
 	scanf("%d", &N);
 
 	for (int i = 0;i < N;i++)
 	{
-
-		scanf("%d", &arr[i]);
-
-		if (arr[i] < min)min = arr[i];
-		if (arr[i] > max)max = arr[i];
+		scanf("%s", san);
+		if (strlen(san) <= 9 && strlen(san) >= 6)printf("yes\n");
+		else printf("no\n");
 	}
-
-	sum = min * max;
-
-	printf("%lld", sum);
 
 	return 0;
 }
